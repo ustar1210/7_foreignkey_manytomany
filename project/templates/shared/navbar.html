@@ -1,0 +1,42 @@
+{% load static %}
+<nav class="navbar">
+    <div class="sign">
+        {% if user.is_authenticated %}
+        <div class="logout">
+            <h1 class="title">로그아웃</h1>
+            <form action="{% url 'account:logout' %}" method="POST">
+                {% csrf_token %}
+                <input type="submit" value="로그아웃">
+            </form>
+        </div>
+        {% else %}
+        <div class="signin">
+            <h1 class="title">로그인</h1>
+            <form action="{% url 'account:signin' %}" method="POST">
+                {% csrf_token %}
+                id : <input type="text" name="username"><br>
+                password : <input type="password" name="password">
+                <input type="submit" value="로그인">
+            </form>
+        </div>
+        <div class="signup">
+            <h1 class="title">회원가입</h1>
+            
+            <form action="{% url 'account:signup' %}" method="POST">
+                {% csrf_token %}
+                {{ form }}
+                
+                <input type="submit" value="회원가입">
+            </form>
+        </div>
+        {% endif %}
+    </div>
+    <div class="urlbar">
+        <div class="url">
+            <a href="{% url 'post:list' %}">게시물 목록 보기</a>
+            <a href="{% url 'post:create' %}">게시물 작성 하기</a>
+            <!-- tag list 페이지 추가 -->
+            <a href="{% url 'post:tag_list' %}">해당 태그 게시물 보기</a>
+        </div>
+    </div>
+</nav>

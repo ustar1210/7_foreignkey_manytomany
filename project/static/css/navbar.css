@@ -1,0 +1,23 @@
+.navbar{
+    display: block;
+}
+.navbar .sign{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: left;
+    border-bottom: 2px solid black;
+    margin: 0;
+}
+.signin, .signup, .logout{
+    padding: 5% 10%;
+
+}
+.navbar .title{
+    font-size: 32px;
+    padding: 0 0 4% 0;
+    text-align:center;
+}
+.navbar .urlbar{
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
